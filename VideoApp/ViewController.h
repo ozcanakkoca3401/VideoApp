@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
+#import "SRTParser.h"
+#import "SDSRTParser.h"
 
-@interface ViewController : UIViewController
+
+
+@interface ViewController : UIViewController <SRTParserDelegate>
 
 
 @end

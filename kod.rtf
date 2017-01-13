@@ -1,0 +1,164 @@
+{\rtf1\ansi\ansicpg1254\cocoartf1504\cocoasubrtf760
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red69\green187\blue62;\red225\green226\blue231;\red81\green36\blue227;
+\red199\green122\blue75;\red211\green35\blue46;\red215\green0\blue143;\red29\green169\blue162;\red37\green144\blue141;
+\red20\green156\blue146;}
+{\*\expandedcolortbl;;\csgenericrgb\c26985\c73392\c24249;\csgenericrgb\c88217\c88535\c90427;\csgenericrgb\c31805\c14233\c89143;
+\csgenericrgb\c78039\c47843\c29412;\csgenericrgb\c82745\c13725\c18039;\csgenericrgb\c84398\c0\c55980;\csgenericrgb\c11560\c66089\c63506;\csgenericrgb\c14440\c56530\c55465;
+\csgenericrgb\c7843\c61177\c57255;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab593
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \CocoaLigature0 //\cf3 \
+\cf2 //  ViewController.m\cf3 \
+\cf2 //  VideoApp\cf3 \
+\cf2 //\cf3 \
+\cf2 //  Created by \'d6zcan AKKOCA on 11.01.2017.\cf3 \
+\cf2 //  Copyright \'a9 2017 \'d6zcan AKKOCA. All rights reserved.\cf3 \
+\cf2 //\cf3 \
+\
+\cf2 // {\field{\*\fldinst{HYPERLINK "http://stackoverflow.com/questions/35722451/xcode-objective-c-avplayer-programmatically-play-local-video-with-standar"}}{\fldrslt \cf4 http://stackoverflow.com/questions/35722451/xcode-objective-c-avplayer-programmatically-play-local-video-with-standar}}\cf3 \
+\cf5 #import \cf6 "ViewController.h"\cf5 \
+\cf3 \
+\cf7 @interface\cf3  \cf8 ViewController\cf3  ()\
+    \cf7 @property\cf3  (\cf7 nonatomic\cf3 , \cf7 retain\cf3 ) \cf9 AVPlayerViewController\cf3  *avPlayerViewcontroller;\
+\
+\cf7 @end\cf3 \
+\
+\cf7 @implementation\cf3  ViewController \{\
+    \cf8 SRTParser\cf3  *_srtParser;\
+\}\
+\
+- (\cf7 void\cf3 )viewDidLoad \{\
+    [\cf7 super\cf3  \cf9 viewDidLoad\cf3 ];\
+    \cf2 // Do any additional setup after loading the view, typically from a nib.\cf3 \
+    \
+\cf2 /*\
+    NSURL *url = [[NSURL alloc] initWithString:@"{\field{\*\fldinst{HYPERLINK "https://s3-eu-west-1.amazonaws.com/alf-proeysen/Bakvendtland-MASTER.mp4"}}{\fldrslt \cf4 https://s3-eu-west-1.amazonaws.com/alf-proeysen/Bakvendtland-MASTER.mp4}}"];\
+    AVPlayer *player = [AVPlayer playerWithURL:url];\
+    \
+    AVPlayerViewController *controller = [[AVPlayerViewController alloc] init];\
+    \
+    [self addChildViewController:controller];\
+    [self.view addSubview:controller.view];\
+    \
+    controller.view.frame = CGRectMake(50,50,250,100);\
+    controller.player = player;\
+    controller.showsPlaybackControls = YES;\
+    player.closedCaptionDisplayEnabled = NO;\
+    [player pause];\
+    [player play];\
+    \
+    \
+    AVPlayerItem * item = player.currentItem;\
+    \
+    if (item.status == AVPlayerItemStatusReadyToPlay) \{\
+        NSArray * timeRangeArray = item.loadedTimeRanges;\
+        \
+        CMTimeRange aTimeRange = [[timeRangeArray objectAtIndex:0] CMTimeRangeValue];\
+        \
+        double startTime = CMTimeGetSeconds(aTimeRange.start);\
+        double loadedDuration = CMTimeGetSeconds(aTimeRange.duration);\
+        \
+        // FIXME: shoule we sum up all sections to have a total playable duration,\
+        // or we just use first section as whole?\
+        \
+        NSLog(@"get time range, its start is %f seconds, its duration is %f seconds.", startTime, loadedDuration);\
+    \}\
+    \
+    ///////\
+    NSString *srtPath = [[NSBundle mainBundle] pathForResource:@"sample" ofType:@"srt"];\
+    SRTParser *srt = [[SRTParser alloc] initWithSRTFile:srtPath];\
+    srt.delegate = self;\
+    [srt parse];\
+    NSLog(@"-----%@ ???????", [srt.getSrtArray[0] objectAtIndex:2]);\
+    \
+    for (NSInteger i = 0; i < [srt.getSrtArray count]; i++) \{\
+        [srt.getSrtArray[i] objectAtIndex:1];\
+    \}\
+    \
+    ////////\
+    NSLog(@"/////////////////////////");\
+    SDSRTParser *parser = [[SDSRTParser alloc] init];\
+    //[parser loadFromString:@"1\\n00:00:12,345 --> 00:00:34,567\\nfoo\\nbar\\n\\n..."];\
+    [parser loadFromString:@"1\\n00:00:01,345 --> 00:00:02,567\\nfoo\\n\\n 2\\n00:00:01,320 --> 00:00:02,987\\nThe storm continued" error:nil];\
+    \
+  //  @"1\\n00:00:01,320 --> 00:00:02,987\\nThe storm continued all night long, but nothing strange happened"\
+    for (SDSubtitle *subtitle in parser.subtitles)\
+    \{\
+        [subtitle index];\
+        [subtitle startTime];\
+        [subtitle endTime];\
+        [subtitle content];\
+        NSLog(@"%@", [subtitle content]);\
+\
+    \}\
+    */\cf3 \
+    \
+    \cf2 // 1 - Load video asset\cf3 \
+    \cf9 NSURL\cf3  *url = [[\cf9 NSURL\cf3  \cf9 alloc\cf3 ] \cf9 initWithString\cf3 :\cf6 @"https://s3-eu-west-1.amazonaws.com/alf-proeysen/Bakvendtland-MASTER.mp4"\cf3 ];\
+\
+    \cf9 AVAsset\cf3  *videoAsset = [\cf9 AVURLAsset\cf3  \cf9 assetWithURL\cf3 :url];\
+    \
+    \
+    \cf2 // 2 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.\cf3 \
+    \cf9 AVMutableComposition\cf3  *mixComposition = [[\cf9 AVMutableComposition\cf3  \cf9 alloc\cf3 ] \cf9 init\cf3 ];\
+    \
+    \cf2 // 3 - Video track\cf3 \
+    \cf9 AVMutableCompositionTrack\cf3  *videoTrack = [mixComposition \cf9 addMutableTrackWithMediaType\cf3 :\cf9 AVMediaTypeVideo\cf3 \
+                                                                        \cf9 preferredTrackID\cf3 :\cf9 kCMPersistentTrackID_Invalid\cf3 ];\
+    [videoTrack \cf9 insertTimeRange\cf3 :\cf9 CMTimeRangeMake\cf3 (\cf9 kCMTimeZero\cf3 , videoAsset.\cf9 duration\cf3 )\
+                        \cf9 ofTrack\cf3 :[[videoAsset \cf9 tracksWithMediaType\cf3 :\cf9 AVMediaTypeVideo\cf3 ] \cf9 objectAtIndex\cf3 :\cf10 0\cf3 ]\
+                         \cf9 atTime\cf3 :\cf9 kCMTimeZero\cf3  \cf9 error\cf3 :\cf7 nil\cf3 ];\
+    \
+\
+    \
+\
+    \cf2 // 4 - Subtitle track\cf3 \
+    \cf9 AVURLAsset\cf3  *subtitleAsset = [\cf9 AVURLAsset\cf3  \cf9 assetWithURL\cf3 :[[\cf9 NSBundle\cf3  \cf9 mainBundle\cf3 ] \cf9 URLForResource\cf3 :\cf6 @"trailer_720p"\cf3  \cf9 withExtension\cf3 :\cf6 @"vtt"\cf3 ]];\
+    \
+    \cf9 AVMutableCompositionTrack\cf3  *subtitleTrack = [mixComposition \cf9 addMutableTrackWithMediaType\cf3 :\cf9 AVMediaTypeText\cf3 \
+                                                                           \cf9 preferredTrackID\cf3 :\cf9 kCMPersistentTrackID_Invalid\cf3 ];\
+    \
+    [subtitleTrack \cf9 insertTimeRange\cf3 :\cf9 CMTimeRangeMake\cf3 (\cf9 kCMTimeZero\cf3 , videoAsset.\cf9 duration\cf3 )\
+                           \cf9 ofTrack\cf3 :[[subtitleAsset \cf9 tracksWithMediaType\cf3 :\cf9 AVMediaTypeText\cf3 ] \cf9 objectAtIndex\cf3 :\cf10 0\cf3 ]\
+                            \cf9 atTime\cf3 :\cf9 kCMTimeZero\cf3  \cf9 error\cf3 :\cf7 nil\cf3 ];\
+     \
+    \cf2 // 5 - Set up player\cf3 \
+    \cf9 AVPlayer\cf3  *player = [\cf9 AVPlayer\cf3  \cf9 playerWithPlayerItem\cf3 : [\cf9 AVPlayerItem\cf3  \cf9 playerItemWithAsset\cf3 :mixComposition]];\
+    \
+    \cf9 AVPlayerViewController\cf3  *controller = [[\cf9 AVPlayerViewController\cf3  \cf9 alloc\cf3 ] \cf9 init\cf3 ];\
+    \
+    [\cf7 self\cf3  \cf9 addChildViewController\cf3 :controller];\
+    [\cf7 self\cf3 .\cf9 view\cf3  \cf9 addSubview\cf3 :controller.\cf9 view\cf3 ];\
+    \
+    controller.\cf9 view\cf3 .\cf9 frame\cf3  = \cf9 CGRectMake\cf3 (\cf10 0\cf3 , \cf10 0\cf3 , \cf7 self\cf3 .\cf9 view\cf3 .\cf9 bounds\cf3 .\cf9 size\cf3 .\cf9 width\cf3 , \cf7 self\cf3 .\cf9 view\cf3 .\cf9 bounds\cf3 .\cf9 size\cf3 .\cf9 width\cf3 );\
+    controller.\cf9 player\cf3  = player;\
+    controller.\cf9 showsPlaybackControls\cf3  = \cf7 YES\cf3 ;\
+    player.\cf9 closedCaptionDisplayEnabled\cf3  = \cf7 NO\cf3 ;\
+    [player \cf9 pause\cf3 ];\
+    [player \cf9 play\cf3 ];\
+     \
+  \
+    \
+\}\
+\
+\
+\
+- (\cf7 void\cf3 )didReceiveMemoryWarning \{\
+    [\cf7 super\cf3  \cf9 didReceiveMemoryWarning\cf3 ];\
+    \cf2 // Dispose of any resources that can be recreated.\cf3 \
+\}\
+\
+\
+\
+- (\cf7 void\cf3 )parsingFinishedWithSubs:(\cf9 NSArray\cf3  *)subs\
+\{\
+    \cf9 NSLog\cf3 (\cf6 @"%@"\cf3 ,subs);\
+\}\
+\
+\
+\
+\cf7 @end\cf3 \
+}

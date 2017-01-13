@@ -1,0 +1,19 @@
+1
+00:00:01,320 --> 00:00:02,987
+The storm continued all night long, but nothing strange happened,
+
+2
+00:00:03,980 --> 00:00:05,160
+and the family slept quite well.
+
+3
+00:00:08,200 --> 00:00:11,280
+However, the next morning, when they came downstairs for breakfast,
+
+4
+00:00:13,920 --> 00:00:16,280
+they found the terrible stain on the library floor again.
+
+5
+00:00:18,480 --> 00:00:20,880
+"I don't believe it!" said Washington.
