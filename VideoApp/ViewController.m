@@ -11,7 +11,7 @@
 
 @interface ViewController ()
     @property (nonatomic, retain) AVPlayerViewController *avPlayerViewcontroller;
-
+    @property (nonatomic,strong) MPMoviePlayerController* mc;
 @end
 
 @implementation ViewController {
@@ -22,8 +22,50 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-/*
-    NSURL *url = [[NSURL alloc] initWithString:@"https://s3-eu-west-1.amazonaws.com/alf-proeysen/Bakvendtland-MASTER.mp4"];
+   /* NSString *filePathStr = [[NSBundle mainBundle] pathForResource:@"trailer_720p" ofType:@"mov"];
+    NSURL *fileURL = [NSURL fileURLWithPath:filePathStr];
+    
+    // Subtitles file
+    NSString *subtitlesPathStr = [[NSBundle mainBundle] pathForResource:@"sample" ofType:@"srt"];
+    
+    // Create MoviePlayer
+    MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:fileURL];
+    
+    [player.moviePlayer openSRTFileAtPath:subtitlesPathStr
+                               completion:^(BOOL finished) {
+                                   
+                                   // Activate subtitles
+                                   [player.moviePlayer showSubtitles];
+                                   
+                                   // Show video
+                                   [self presentMoviePlayerViewControllerAnimated:player];
+                                   
+                               } failure:^(NSError *error) {
+                                   
+                                   NSLog(@"Error: %@", error.description);
+                                   
+                               }];
+    
+    self.mc = player; //Super important
+    player.view.frame = self.view.bounds; //Set the size
+    
+    [self.view addSubview:player.view]; //Show the view
+   // [player play]; //Start playing
+*/
+    
+
+    NSURL *url = [NSURL URLWithString:@"https://s3-eu-west-1.amazonaws.com/alf-proeysen/Bakvendtland-MASTER.mp4"];
+    MPMoviePlayerController *controller = [[MPMoviePlayerController alloc]
+                                           initWithContentURL:url];
+    
+    self.mc = controller; //Super important
+    controller.view.frame = self.view.bounds; //Set the size
+    
+    [self.view addSubview:controller.view]; //Show the view
+    [controller play]; //Start playing
+ 
+ 
+   /*NSURL *url = [[NSURL alloc] initWithString:@"https://cms.medianova.com/index.php/extwidget/preview/partner_id/463/uiconf_id/6711601/entry_id/0_oett5mv7/embed/auto?&flashvars%5BstreamerType%5D=auto"];
     AVPlayer *player = [AVPlayer playerWithURL:url];
     
     AVPlayerViewController *controller = [[AVPlayerViewController alloc] init];
@@ -37,8 +79,10 @@
     player.closedCaptionDisplayEnabled = NO;
     [player pause];
     [player play];
+*/
     
     
+ /*
     AVPlayerItem * item = player.currentItem;
     
     if (item.status == AVPlayerItemStatusReadyToPlay) {
@@ -83,7 +127,7 @@
 
     }
     */
-    
+  /*
     // 1 - Load video asset
     NSURL *url = [[NSURL alloc] initWithString:@"https://s3-eu-west-1.amazonaws.com/alf-proeysen/Bakvendtland-MASTER.mp4"];
 
@@ -116,7 +160,17 @@
     [subtitleTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)
                            ofTrack:[[subtitleAsset tracksWithMediaType:AVMediaTypeText] objectAtIndex:0]
                             atTime:kCMTimeZero error:nil];
-     
+    
+    // 5 - Subtitle track
+    AVURLAsset *subtitleAsset1 = [AVURLAsset assetWithURL:[[NSBundle mainBundle] URLForResource:@"trailer_720p" withExtension:@"vtt"]];
+    
+    AVMutableCompositionTrack *subtitleTrack1 = [mixComposition addMutableTrackWithMediaType:AVMediaTypeText
+                                                                           preferredTrackID:kCMPersistentTrackID_Invalid];
+    
+    [subtitleTrack1 insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)
+                           ofTrack:[[subtitleAsset1 tracksWithMediaType:AVMediaTypeText] objectAtIndex:0]
+                            atTime:kCMTimeZero error:nil];
+    
     // 6 - Set up player
     AVPlayer *player = [AVPlayer playerWithPlayerItem: [AVPlayerItem playerItemWithAsset:mixComposition]];
     
@@ -132,7 +186,7 @@
     [player pause];
     [player play];
      
-  
+*/
     
 }
 

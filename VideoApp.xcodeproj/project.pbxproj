@@ -21,6 +21,8 @@
 		691671FE1E25F6C6001896EE /* VideoAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 691671FD1E25F6C6001896EE /* VideoAppUITests.m */; };
 		6916720C1E25FA7F001896EE /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 6916720B1E25FA7F001896EE /* video.mov */; };
 		6918E4BE1E28C3CA009A091F /* kod.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6918E4BD1E28C3CA009A091F /* kod.rtf */; };
+		69682D511E2E4FDD007A367B /* MPMoviePlayerController+Subtitles.m in Sources */ = {isa = PBXBuildFile; fileRef = 69682D501E2E4FDD007A367B /* MPMoviePlayerController+Subtitles.m */; };
+		696F4E211E2CEF5E005E1A0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 696F4E201E2CEF5E005E1A0F /* Default-568h@2x.png */; };
 		69C5373A1E277A040015A3AE /* SRTParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C537351E277A040015A3AE /* SRTParser.m */; };
 		69C5373B1E277A040015A3AE /* SRTSubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C537371E277A040015A3AE /* SRTSubtitle.m */; };
 		69C5373C1E277A040015A3AE /* SRTTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C537391E277A040015A3AE /* SRTTime.m */; };
@@ -76,6 +78,9 @@
 		691671FF1E25F6C6001896EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6916720B1E25FA7F001896EE /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = video.mov; path = ../video.mov; sourceTree = "<group>"; };
 		6918E4BD1E28C3CA009A091F /* kod.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = kod.rtf; sourceTree = "<group>"; };
+		69682D4F1E2E4FDD007A367B /* MPMoviePlayerController+Subtitles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerController+Subtitles.h"; sourceTree = "<group>"; };
+		69682D501E2E4FDD007A367B /* MPMoviePlayerController+Subtitles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerController+Subtitles.m"; sourceTree = "<group>"; };
+		696F4E201E2CEF5E005E1A0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		69C537341E277A040015A3AE /* SRTParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRTParser.h; sourceTree = "<group>"; };
 		69C537351E277A040015A3AE /* SRTParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRTParser.m; sourceTree = "<group>"; };
 		69C537361E277A040015A3AE /* SRTSubtitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRTSubtitle.h; sourceTree = "<group>"; };
@@ -135,6 +140,7 @@
 		691671C91E25F6C5001896EE = {
 			isa = PBXGroup;
 			children = (
+				696F4E201E2CEF5E005E1A0F /* Default-568h@2x.png */,
 				6918E4BD1E28C3CA009A091F /* kod.rtf */,
 				691671D41E25F6C5001896EE /* VideoApp */,
 				691671F11E25F6C6001896EE /* VideoAppTests */,
@@ -166,6 +172,8 @@
 				691671D91E25F6C5001896EE /* AppDelegate.m */,
 				691671DB1E25F6C5001896EE /* ViewController.h */,
 				691671DC1E25F6C5001896EE /* ViewController.m */,
+				69682D4F1E2E4FDD007A367B /* MPMoviePlayerController+Subtitles.h */,
+				69682D501E2E4FDD007A367B /* MPMoviePlayerController+Subtitles.m */,
 				691671DE1E25F6C5001896EE /* Main.storyboard */,
 				691671E41E25F6C5001896EE /* Assets.xcassets */,
 				691671E61E25F6C6001896EE /* LaunchScreen.storyboard */,
@@ -360,6 +368,7 @@
 				6918E4BE1E28C3CA009A091F /* kod.rtf in Resources */,
 				69C5374C1E27BC070015A3AE /* trailer_720p.srt in Resources */,
 				6916720C1E25FA7F001896EE /* video.mov in Resources */,
+				696F4E211E2CEF5E005E1A0F /* Default-568h@2x.png in Resources */,
 				691671E81E25F6C6001896EE /* LaunchScreen.storyboard in Resources */,
 				69C5374E1E27C05B0015A3AE /* trailer_720p.mov in Resources */,
 				691671E51E25F6C5001896EE /* Assets.xcassets in Resources */,
@@ -534,6 +543,7 @@
 				69C537441E27906F0015A3AE /* SDSubtitle.m in Sources */,
 				691671DA1E25F6C5001896EE /* AppDelegate.m in Sources */,
 				69C5373A1E277A040015A3AE /* SRTParser.m in Sources */,
+				69682D511E2E4FDD007A367B /* MPMoviePlayerController+Subtitles.m in Sources */,
 				69C537431E27906F0015A3AE /* SDSRTParser.m in Sources */,
 				691671D71E25F6C5001896EE /* main.m in Sources */,
 				69C5373B1E277A040015A3AE /* SRTSubtitle.m in Sources */,

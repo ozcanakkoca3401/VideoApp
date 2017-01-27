@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "SRTParser.h"
 #import "SDSRTParser.h"
+#import "MPMoviePlayerController+Subtitles.h"
 
 
 
-@interface ViewController : UIViewController <SRTParserDelegate>
+@interface ViewController : UIViewController <SRTParserDelegate, MPMediaPickerControllerDelegate,MPMediaPlayback>
 
 
 @end
